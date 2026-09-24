@@ -1,1 +1,2719 @@
+/* =====================================================
+   CODEPULSE
+   Smart Coding Progress & Skill Tracker
+===================================================== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   ANIMATED CODE BACKGROUND
+===================================================== */
+
+.code-background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.code-background span {
+    position: absolute;
+    color: rgba(104, 76, 230, 0.045);
+    font-size: 55px;
+    font-weight: 800;
+    user-select: none;
+    animation: codeFloat 18s linear infinite;
+}
+
+.code-background span:nth-child(1) {
+    left: 8%;
+    top: 18%;
+}
+
+.code-background span:nth-child(2) {
+    left: 30%;
+    top: 70%;
+    animation-delay: 3s;
+}
+
+.code-background span:nth-child(3) {
+    left: 65%;
+    top: 15%;
+    animation-delay: 6s;
+}
+
+.code-background span:nth-child(4) {
+    left: 82%;
+    top: 65%;
+    animation-delay: 2s;
+}
+
+.code-background span:nth-child(5) {
+    left: 45%;
+    top: 30%;
+    animation-delay: 8s;
+}
+
+.code-background span:nth-child(6) {
+    left: 15%;
+    top: 85%;
+    animation-delay: 4s;
+}
+
+.code-background span:nth-child(7) {
+    left: 72%;
+    top: 85%;
+    animation-delay: 9s;
+}
+
+.code-background span:nth-child(8) {
+    left: 90%;
+    top: 30%;
+    animation-delay: 5s;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 250px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    backdrop-filter: blur(15px);
+
+    border-right: 1px solid #e7eaf0;
+
+    padding: 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 10px 30px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #6c4be8,
+        #9278f5
+    );
+
+    color: white;
+
+    border-radius: 13px;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 8px 20px rgba(108, 75, 232, 0.25);
+
+    animation: brainPulse 3s ease-in-out infinite;
+}
+
+.brand h2 {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.brand span {
+    display: block;
+
+    color: #8993a3;
+
+    font-size: 9px;
+
+    margin-top: 3px;
+}
+
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 14px;
+
+    color: #6d7788;
+
+    text-decoration: none;
+
+    border-radius: 11px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition:
+        background 0.3s,
+        color 0.3s,
+        transform 0.3s;
+}
+
+.nav-link span {
+    font-size: 17px;
+}
+
+.nav-link:hover {
+    background: #f1efff;
+
+    color: #6646e5;
+
+    transform: translateX(4px);
+}
+
+.nav-link.active {
+    background: #eeeaff;
+
+    color: #6546e8;
+
+    box-shadow:
+        inset 3px 0 0 #6546e8;
+}
+
+
+/* =====================================================
+   SIDEBAR BOTTOM
+===================================================== */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.cloud-status {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    background: #f7f8fb;
+
+    border-radius: 12px;
+}
+
+.online-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 5px #dcfce7;
+
+    animation: onlinePulse 2s infinite;
+}
+
+.cloud-status strong {
+    display: block;
+
+    font-size: 10px;
+}
+
+.cloud-status small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #8c96a5;
+
+    font-size: 9px;
+}
+
+.theme-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 13px;
+
+    background: white;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 10px;
+
+    color: #667085;
+
+    font-size: 11px;
+
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: #f5f3ff;
+
+    color: #6546e8;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.main-content {
+    margin-left: 250px;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+    position: sticky;
+    top: 0;
+
+    min-height: 100px;
+
+    padding: 23px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid #e7eaf0;
+
+    z-index: 500;
+}
+
+.welcome-label {
+    color: #7357e8;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.topbar h1 {
+    font-size: 25px;
+
+    margin: 5px 0;
+}
+
+.topbar p {
+    color: #8791a1;
+
+    font-size: 11px;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+.icon-btn {
+    width: 39px;
+    height: 39px;
+
+    background: white;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.icon-btn:hover {
+    transform: rotate(15deg);
+
+    background: #f5f3ff;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.profile-avatar {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eeeaff;
+
+    color: #6546e8;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.profile strong {
+    display: block;
+
+    font-size: 11px;
+}
+
+.profile small {
+    color: #8993a2;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.page-section {
+    padding: 42px 40px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-card {
+    min-height: 330px;
+
+    padding: 42px 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,255,255,0.18),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #6042dc,
+            #866cef
+        );
+
+    box-shadow:
+        0 25px 55px rgba(91, 64, 215, 0.22);
+}
+
+.hero-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -100px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    animation: rotate 20s linear infinite;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 600px;
+}
+
+.hero-content > span {
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    opacity: 0.8;
+}
+
+.hero-content h2 {
+    font-size: 37px;
+
+    line-height: 1.12;
+
+    margin: 12px 0;
+}
+
+.hero-content h2 strong {
+    color: #e8e0ff;
+}
+
+.hero-content p {
+    max-width: 550px;
+
+    color: rgba(255,255,255,0.78);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin-bottom: 22px;
+}
+
+.hero-btn {
+    padding: 13px 18px;
+
+    background: white;
+
+    color: #6042dc;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.18);
+}
+
+
+/* =====================================================
+   CODE WINDOW
+===================================================== */
+
+.hero-visual {
+    width: 370px;
+    height: 260px;
+
+    position: relative;
+}
+
+.code-window {
+    position: absolute;
+
+    right: 20px;
+    top: 35px;
+
+    width: 310px;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: rgba(15, 19, 35, 0.9);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+        0 25px 45px rgba(20, 10, 60, 0.3);
+
+    transform:
+        perspective(700px)
+        rotateY(-8deg);
+
+    animation: codeWindowFloat 4s ease-in-out infinite;
+}
+
+.window-top {
+    height: 33px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding-left: 13px;
+
+    background: rgba(0,0,0,0.25);
+}
+
+.window-top span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #8e96a6;
+}
+
+.code-lines {
+    padding: 18px;
+}
+
+.code-lines p {
+    margin-bottom: 12px;
+
+    color: #bbc2d0;
+
+    font-family: monospace;
+
+    font-size: 10px;
+}
+
+.code-lines b {
+    color: #697386;
+
+    margin-right: 12px;
+}
+
+.code-lines span {
+    color: #bdaaff;
+}
+
+.code-lines strong {
+    color: #6ee7b7;
+}
+
+.floating-code {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(10px);
+
+    font-family: monospace;
+
+    font-weight: 800;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+.code-one {
+    right: 0;
+    top: 0;
+}
+
+.code-two {
+    left: 20px;
+    bottom: 15px;
+
+    animation-delay: 1s;
+}
+
+.code-three {
+    right: 15px;
+    bottom: 0;
+
+    animation-delay: 2s;
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 17px;
+
+    margin-top: 20px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 20px;
+
+    background: white;
+
+    border: 1px solid #e8ebf1;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(30,40,60,0.04);
+
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 35px rgba(30,40,60,0.09);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    font-size: 20px;
+}
+
+.purple {
+    background: #eeeaff;
+}
+
+.orange {
+    background: #fff2dd;
+}
+
+.blue {
+    background: #e8f4ff;
+}
+
+.green {
+    background: #e8f9ef;
+}
+
+.stat-card span {
+    display: block;
+
+    color: #8a94a4;
+
+    font-size: 9px;
+}
+
+.stat-card h2 {
+    margin: 4px 0;
+
+    font-size: 22px;
+}
+
+.stat-card h2 span {
+    display: inline;
+
+    color: inherit;
+
+    font-size: inherit;
+}
+
+.stat-card small {
+    color: #929baa;
+
+    font-size: 9px;
+}
+
+.positive {
+    color: #16a34a !important;
+}
+
+
+/* =====================================================
+   DASHBOARD GRID
+===================================================== */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr;
+
+    gap: 18px;
+
+    margin-top: 18px;
+}
+
+.panel {
+    background: white;
+
+    border: 1px solid #e8ebf1;
+
+    border-radius: 17px;
+
+    padding: 23px;
+
+    box-shadow:
+        0 8px 25px rgba(30,40,60,0.035);
+}
+
+.panel-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.panel-header > div > span {
+    display: block;
+
+    color: #7357e8;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.panel-header h3 {
+    margin-top: 5px;
+
+    font-size: 15px;
+}
+
+.streak-number {
+    color: #f97316;
+
+    font-size: 19px;
+
+    animation: firePulse 1.5s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   WEEK STREAK
+===================================================== */
+
+.week-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 10px;
+}
+
+.day {
+    text-align: center;
+}
+
+.day > span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #929baa;
+
+    font-size: 8px;
+
+    font-weight: 700;
+}
+
+.day > div {
+    width: 35px;
+    height: 35px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f1f3f7;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.day.completed > div {
+    background: #eeeaff;
+
+    color: #6546e8;
+
+    box-shadow:
+        0 5px 12px rgba(101,70,232,0.12);
+}
+
+.day.today > div {
+    background: #6546e8;
+
+    color: white;
+
+    animation:
+        todayPulse 1.8s infinite;
+}
+
+.streak-message {
+    margin-top: 20px;
+
+    padding: 12px;
+
+    background: #fff7ed;
+
+    color: #c2410c;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   DAILY GOAL
+===================================================== */
+
+.goal-percent {
+    color: #6546e8;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.goal-progress {
+    width: 100%;
+
+    height: 11px;
+
+    background: #edf0f5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.goal-progress div {
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6546e8,
+            #9d87ff
+        );
+
+    border-radius: 20px;
+
+    animation: progressLoad 1.5s ease;
+}
+
+.goal-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 15px 0;
+
+    font-size: 10px;
+}
+
+.goal-info span {
+    color: #8d97a6;
+}
+
+.small-btn {
+    padding: 10px 14px;
+
+    background: #f0edff;
+
+    border: none;
+
+    color: #6546e8;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.section-header {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.section-header > div > span {
+    color: #7357e8;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-header h2 {
+    margin: 6px 0;
+
+    font-size: 25px;
+}
+
+.section-header p {
+    color: #8791a1;
+
+    font-size: 11px;
+}
+
+.add-btn {
+    padding: 12px 17px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #6546e8;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(101,70,232,0.25);
+}
+
+
+/* =====================================================
+   PROBLEM CARDS
+===================================================== */
+
+.problem-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 17px;
+
+    margin-bottom: 20px;
+}
+
+.problem-card {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    background: white;
+
+    border: 1px solid #e8ebf1;
+
+    border-radius: 16px;
+
+    transition: 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 30px rgba(30,40,60,0.08);
+}
+
+.problem-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    font-size: 18px;
+}
+
+.easy {
+    background: #ecfdf5;
+}
+
+.medium {
+    background: #fffbeb;
+}
+
+.hard {
+    background: #fff1f2;
+}
+
+.problem-card span {
+    display: block;
+
+    color: #929baa;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.problem-card h3 {
+    font-size: 25px;
+
+    margin: 3px 0;
+}
+
+.problem-card p {
+    color: #8993a2;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   ACTIVITY
+===================================================== */
+
+.activity-item {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1efff;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-info strong {
+    display: block;
+
+    font-size: 11px;
+}
+
+.activity-info span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #9099a7;
+
+    font-size: 9px;
+}
+
+.activity-time {
+    color: #929baa;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills-layout {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 18px;
+}
+
+.skills-panel {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.skill-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 5px;
+}
+
+.skill-name {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+.language-icon {
+    width: 37px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+}
+
+.python {
+    background: #fff7dd;
+}
+
+.java {
+    background: #fff0e9;
+}
+
+.sql {
+    background: #eaf4ff;
+}
+
+.web {
+    background: #edf8ff;
+}
+
+.skill-name strong {
+    display: block;
+
+    font-size: 11px;
+}
+
+.skill-name span {
+    display: block;
+
+    color: #8c96a4;
+
+    margin-top: 3px;
+
+    font-size: 8px;
+}
+
+.skill-row > strong {
+    font-size: 11px;
+}
+
+.skill-progress {
+    height: 7px;
+
+    background: #edf0f5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 10px;
+}
+
+.skill-progress div {
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6546e8,
+            #9b86fa
+        );
+
+    animation: progressLoad 1.3s ease;
+}
+
+
+/* =====================================================
+   SKILL SCORE
+===================================================== */
+
+.skill-score-card {
+    min-height: 300px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-radius: 17px;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,255,255,0.14),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #1c2440,
+            #313e67
+        );
+
+    box-shadow:
+        0 18px 35px rgba(20,30,60,0.14);
+}
+
+.score-circle {
+    width: 130px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #9c87ff 82%,
+            rgba(255,255,255,0.1) 82%
+        );
+
+    position: relative;
+
+    animation: scoreRotate 1.5s ease;
+}
+
+.score-circle::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: #242d4c;
+}
+
+.score-circle > div {
+    position: relative;
+
+    z-index: 2;
+}
+
+.score-circle strong {
+    font-size: 27px;
+}
+
+.score-circle span {
+    font-size: 9px;
+
+    opacity: 0.6;
+}
+
+.skill-score-card h3 {
+    margin-top: 20px;
+
+    font-size: 15px;
+}
+
+.skill-score-card p {
+    margin-top: 6px;
+
+    color: #adb7cb;
+
+    font-size: 10px;
+}
+
+.level-badge {
+    margin-top: 16px;
+
+    padding: 8px 12px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.1);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   DSA
+===================================================== */
+
+.dsa-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 17px;
+}
+
+.dsa-card {
+    padding: 21px;
+
+    background: white;
+
+    border: 1px solid #e8ebf1;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.dsa-card:hover {
+    transform: translateY(-4px);
+}
+
+.dsa-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.dsa-top span {
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.dsa-top strong {
+    color: #6546e8;
+
+    font-size: 11px;
+}
+
+.dsa-progress {
+    height: 7px;
+
+    background: #edf0f5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.dsa-progress div {
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6546e8,
+            #9c87fa
+        );
+
+    border-radius: 20px;
+
+    animation: progressLoad 1.3s ease;
+}
+
+.dsa-card small {
+    display: block;
+
+    color: #9099a7;
+
+    margin-top: 9px;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
+
+.achievement-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 17px;
+}
+
+.achievement-card {
+    text-align: center;
+
+    padding: 25px 18px;
+
+    background: white;
+
+    border: 1px solid #e8ebf1;
+
+    border-radius: 16px;
+
+    transition: 0.3s;
+}
+
+.achievement-card:hover {
+    transform:
+        translateY(-7px)
+        rotate(1deg);
+
+    box-shadow:
+        0 18px 35px rgba(30,40,60,0.08);
+}
+
+.achievement-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: #f1efff;
+
+    font-size: 25px;
+
+    animation: badgeFloat 3s ease-in-out infinite;
+}
+
+.achievement-card h3 {
+    margin-top: 14px;
+
+    font-size: 12px;
+}
+
+.achievement-card p {
+    margin: 7px 0 13px;
+
+    color: #8b95a4;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+.achievement-card > span {
+    padding: 5px 8px;
+
+    border-radius: 50px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+.achievement-card.locked {
+    opacity: 0.55;
+}
+
+.achievement-card.locked .achievement-icon {
+    background: #f0f1f4;
+
+    animation: none;
+}
+
+.achievement-card.locked > span {
+    background: #f1f3f5;
+
+    color: #8a94a4;
+}
+
+
+/* =====================================================
+   ANALYTICS
+===================================================== */
+
+.analytics-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap: 18px;
+}
+
+.analytics-card {
+    min-height: 330px;
+}
+
+.analytics-card > .panel-header > strong {
+    color: #16a34a;
+
+    font-size: 18px;
+}
+
+.chart {
+    height: 220px;
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-around;
+
+    gap: 10px;
+
+    padding: 10px 10px 0;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+.chart-column {
+    height: 100%;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: end;
+
+    gap: 8px;
+}
+
+.chart-bar {
+    width: 65%;
+
+    max-width: 40px;
+
+    min-height: 8px;
+
+    border-radius:
+        7px 7px 0 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #aa99f7,
+            #6546e8
+        );
+
+    animation: chartGrow 1.2s ease;
+}
+
+.chart-bar.active {
+    background:
+        linear-gradient(
+            180deg,
+            #6546e8,
+            #4223bd
+        );
+
+    box-shadow:
+        0 0 18px rgba(101,70,232,0.3);
+}
+
+.chart-column span {
+    color: #8e98a6;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   OVERALL PROGRESS
+===================================================== */
+
+.overall-progress {
+    display: flex;
+
+    justify-content: center;
+
+    padding: 12px;
+}
+
+.overall-circle {
+    width: 190px;
+    height: 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #6546e8 82%,
+            #edf0f5 82%
+        );
+
+    animation: scoreRotate 1.5s ease;
+}
+
+.overall-circle::before {
+    content: "";
+
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+.overall-circle > div {
+    position: relative;
+
+    text-align: center;
+}
+
+.overall-circle strong {
+    display: block;
+
+    font-size: 32px;
+
+    color: #6546e8;
+}
+
+.overall-circle span {
+    color: #8d97a5;
+
+    font-size: 9px;
+}
+
+.analytics-message {
+    text-align: center;
+
+    padding: 10px;
+
+    background: #f5f3ff;
+
+    color: #6546e8;
+
+    border-radius: 9px;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   CLOUD SECTION
+===================================================== */
+
+.cloud-section {
+    margin: 10px 40px 45px;
+
+    padding: 40px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    border-radius: 22px;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,255,255,0.14),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #18213b,
+            #2e3b61
+        );
+}
+
+.cloud-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.cloud-content > div:first-child {
+    max-width: 600px;
+}
+
+.cloud-content > div:first-child > span {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+    opacity: 0.7;
+}
+
+.cloud-content h2 {
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    margin: 10px 0;
+}
+
+.cloud-content p {
+    color: #b8c2d4;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+.cloud-features {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 9px;
+
+    margin-top: 20px;
+}
+
+.cloud-features div {
+    color: #dbe2ef;
+
+    font-size: 9px;
+}
+
+.cloud-visual {
+    width: 290px;
+    height: 210px;
+
+    position: relative;
+}
+
+.cloud-main {
+    position: absolute;
+
+    left: 65px;
+    top: 20px;
+
+    font-size: 130px;
+
+    animation:
+        cloudFloat 4s ease-in-out infinite;
+}
+
+.cloud-node {
+    position: absolute;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.1);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(8px);
+
+    animation:
+        float 3s ease-in-out infinite;
+}
+
+.node-one {
+    left: 15px;
+    top: 20px;
+}
+
+.node-two {
+    right: 5px;
+    top: 50px;
+
+    animation-delay: 1s;
+}
+
+.node-three {
+    left: 35px;
+    bottom: 10px;
+
+    animation-delay: 1.7s;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 35px;
+
+    text-align: center;
+
+    background: white;
+
+    border-top: 1px solid #e8ebf1;
+}
+
+.footer-brand {
+    font-size: 18px;
+
+    font-weight: 800;
+
+    margin-bottom: 7px;
+}
+
+footer p {
+    color: #8993a2;
+
+    font-size: 10px;
+}
+
+footer small {
+    display: block;
+
+    margin-top: 13px;
+
+    color: #aeb5c0;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(10, 15, 25, 0.68);
+
+    backdrop-filter: blur(8px);
+}
+
+.modal.show {
+    display: flex;
+
+    animation: fadeIn 0.25s ease;
+}
+
+.modal-box {
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    position: relative;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.25);
+
+    animation: modalUp 0.35s ease;
+}
+
+.close-modal {
+    position: absolute;
+
+    top: 17px;
+    right: 17px;
+
+    width: 33px;
+    height: 33px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f3f6;
+
+    font-size: 19px;
+}
+
+.modal-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 23px;
+}
+
+.modal-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eeeaff;
+
+    border-radius: 13px;
+
+    font-size: 22px;
+}
+
+.modal-header h2 {
+    font-size: 19px;
+}
+
+.modal-header p {
+    margin-top: 3px;
+
+    color: #8993a2;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #dfe4eb;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: white;
+
+    font-size: 10px;
+
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #7357e8;
+
+    box-shadow:
+        0 0 0 3px rgba(115,87,232,0.1);
+}
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    margin-top: 22px;
+}
+
+.cancel-btn,
+.save-btn {
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.cancel-btn {
+    background: white;
+
+    border: 1px solid #dfe4eb;
+}
+
+.save-btn {
+    background: #6546e8;
+
+    color: white;
+
+    border: none;
+}
+
+.save-btn:hover {
+    box-shadow:
+        0 8px 18px rgba(101,70,232,0.25);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark {
+    background: #0d1220;
+
+    color: #edf1f7;
+}
+
+body.dark .sidebar,
+body.dark .topbar,
+body.dark .stat-card,
+body.dark .panel,
+body.dark .problem-card,
+body.dark .dsa-card,
+body.dark .achievement-card,
+body.dark footer,
+body.dark .modal-box {
+    background: #151c2c;
+
+    border-color: #273145;
+}
+
+body.dark .topbar {
+    background:
+        rgba(21, 28, 44, 0.9);
+}
+
+body.dark .nav-link {
+    color: #aab4c5;
+}
+
+body.dark .nav-link:hover,
+body.dark .nav-link.active {
+    background: #262143;
+
+    color: #ad9cff;
+}
+
+body.dark .topbar p,
+body.dark .section-header p,
+body.dark .stat-card span,
+body.dark .stat-card small,
+body.dark .activity-info span,
+body.dark .activity-time,
+body.dark .skill-name span,
+body.dark .dsa-card small {
+    color: #8f9aac;
+}
+
+body.dark .cloud-status,
+body.dark .theme-btn,
+body.dark .icon-btn {
+    background: #1b2334;
+
+    border-color: #303a4f;
+
+    color: #d8deea;
+}
+
+body.dark .day > div {
+    background: #222b3c;
+}
+
+body.dark .day.completed > div {
+    background: #2b2451;
+
+    color: #ad9cff;
+}
+
+body.dark .activity-item {
+    border-color: #273145;
+}
+
+body.dark .skill-progress,
+body.dark .dsa-progress,
+body.dark .goal-progress {
+    background: #252e40;
+}
+
+body.dark .overall-circle::before {
+    background: #151c2c;
+}
+
+body.dark .modal-box {
+    color: #edf1f7;
+}
+
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .cancel-btn {
+    background: #1b2334;
+
+    border-color: #303a4f;
+
+    color: #edf1f7;
+}
+
+body.dark .close-modal {
+    background: #252e40;
+
+    color: white;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+@keyframes codeFloat {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.15;
+    }
+
+    50% {
+        transform:
+            translateY(-35px)
+            rotate(8deg);
+
+        opacity: 0.3;
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.15;
+    }
+
+}
+
+@keyframes brainPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+@keyframes onlinePulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0
+            rgba(34,197,94,0.4);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 8px
+            rgba(34,197,94,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(34,197,94,0);
+    }
+
+}
+
+@keyframes codeWindowFloat {
+
+    0%,
+    100% {
+        transform:
+            perspective(700px)
+            rotateY(-8deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            perspective(700px)
+            rotateY(-4deg)
+            translateY(-10px);
+    }
+
+}
+
+@keyframes firePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+@keyframes todayPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0
+            rgba(101,70,232,0.4);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 10px
+            rgba(101,70,232,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(101,70,232,0);
+    }
+
+}
+
+@keyframes progressLoad {
+
+    from {
+        width: 0 !important;
+    }
+
+}
+
+@keyframes scoreRotate {
+
+    from {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(0);
+        opacity: 1;
+    }
+
+}
+
+@keyframes chartGrow {
+
+    from {
+        transform:
+            scaleY(0);
+
+        transform-origin:
+            bottom;
+    }
+
+    to {
+        transform:
+            scaleY(1);
+
+        transform-origin:
+            bottom;
+    }
+
+}
+
+@keyframes badgeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+@keyframes cloudFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
+
+}
+
+@keyframes rotate {
+
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes modalUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1150px) {
+
+    .sidebar {
+        width: 215px;
+    }
+
+    .main-content {
+        margin-left: 215px;
+    }
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .achievement-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .dashboard-grid,
+    .skills-layout,
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
+    .problem-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .dsa-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 15px 20px;
+
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+    .brand {
+        padding: 0;
+    }
+
+    .sidebar-nav {
+        display: none;
+    }
+
+    .sidebar-bottom {
+        margin-left: auto;
+    }
+
+    .cloud-status,
+    .theme-btn {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .topbar {
+        padding: 20px;
+    }
+
+    .page-section {
+        padding: 30px 20px;
+    }
+
+    .cloud-section {
+        margin: 10px 20px 30px;
+
+        padding: 30px;
+    }
+
+    .cloud-visual {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .topbar {
+        min-height: 90px;
+    }
+
+    .top-actions {
+        display: none;
+    }
+
+    .hero-card {
+        padding: 30px;
+
+        min-height: auto;
+    }
+
+    .hero-content h2 {
+        font-size: 29px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .problem-grid,
+    .dsa-grid,
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+    .week-grid {
+        gap: 4px;
+    }
+
+    .day > div {
+        width: 30px;
+        height: 30px;
+    }
+
+    .cloud-features {
+        grid-template-columns: 1fr;
+    }
+
+}
