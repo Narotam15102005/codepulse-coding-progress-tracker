@@ -1,1 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        CodePulse | Smart Coding Progress Tracker
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND ANIMATION
+===================================================== -->
+
+<div class="code-background">
+
+    <span>&lt;/&gt;</span>
+    <span>{ }</span>
+    <span>01</span>
+    <span>def()</span>
+    <span>;</span>
+    <span>0101</span>
+    <span>while()</span>
+    <span>API</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🧠
+        </div>
+
+        <div>
+
+            <h2>
+                CodePulse
+            </h2>
+
+            <span>
+                Coding Progress Tracker
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <nav class="sidebar-nav">
+
+
+        <a href="#dashboard"
+           class="nav-link active">
+
+            <span>📊</span>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="#problems"
+           class="nav-link">
+
+            <span>💻</span>
+
+            Problems
+
+        </a>
+
+
+        <a href="#skills"
+           class="nav-link">
+
+            <span>🧩</span>
+
+            Skills
+
+        </a>
+
+
+        <a href="#goals"
+           class="nav-link">
+
+            <span>🎯</span>
+
+            Goals
+
+        </a>
+
+
+        <a href="#achievements"
+           class="nav-link">
+
+            <span>🏆</span>
+
+            Achievements
+
+        </a>
+
+
+        <a href="#analytics"
+           class="nav-link">
+
+            <span>📈</span>
+
+            Analytics
+
+        </a>
+
+
+    </nav>
+
+
+
+    <div class="sidebar-bottom">
+
+
+        <div class="cloud-status">
+
+            <span class="online-dot"></span>
+
+            <div>
+
+                <strong>
+                    CodePulse Online
+                </strong>
+
+                <small>
+                    Cloud Ready
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button class="theme-btn"
+                onclick="toggleTheme()">
+
+            🌙
+
+            <span>
+                Dark Mode
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+
+<!-- =====================================================
+     TOPBAR
+===================================================== -->
+
+<header class="topbar">
+
+
+    <div>
+
+        <span class="welcome-label">
+            DEVELOPER DASHBOARD
+        </span>
+
+        <h1>
+            Good Morning, Developer 👋
+        </h1>
+
+        <p>
+            Keep coding, keep learning, keep growing.
+        </p>
+
+    </div>
+
+
+
+    <div class="top-actions">
+
+
+        <button class="icon-btn"
+                onclick="toggleTheme()">
+
+            🌙
+
+        </button>
+
+
+        <div class="profile">
+
+
+            <div class="profile-avatar">
+                CS
+            </div>
+
+
+            <div>
+
+                <strong>
+                    CSE Student
+                </strong>
+
+                <small>
+                    Developer
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section id="dashboard"
+         class="page-section">
+
+
+    <!-- HERO -->
+
+    <div class="hero-card">
+
+
+        <div class="hero-content">
+
+
+            <span>
+                🚀 YOUR CODING JOURNEY
+            </span>
+
+
+            <h2>
+                Build Skills.
+                <br>
+                Solve Problems.
+                <br>
+                <strong>Become a Developer.</strong>
+            </h2>
+
+
+            <p>
+
+                Track your coding practice, DSA progress,
+                programming skills and daily learning goals
+                from one intelligent dashboard.
+
+            </p>
+
+
+            <button class="hero-btn"
+                    onclick="openActivityModal()">
+
+                + Log Coding Activity
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ANIMATED CODE VISUAL -->
+
+        <div class="hero-visual">
+
+
+            <div class="code-window">
+
+
+                <div class="window-top">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="code-lines">
+
+                    <p>
+                        <b>01</b>
+                        <span>def</span>
+                        solve_problem():
+                    </p>
+
+                    <p>
+                        <b>02</b>
+                        &nbsp;&nbsp;skills =
+                        ["Python", "DSA"]
+                    </p>
+
+                    <p>
+                        <b>03</b>
+                        &nbsp;&nbsp;progress =
+                        <strong>82</strong>
+                    </p>
+
+                    <p>
+                        <b>04</b>
+                        &nbsp;&nbsp;return
+                        <span>"Success 🚀"</span>
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="floating-code code-one">
+                &lt;/&gt;
+            </div>
+
+            <div class="floating-code code-two">
+                { }
+            </div>
+
+            <div class="floating-code code-three">
+                01
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================= -->
+
+
+    <div class="stats-grid">
+
+
+        <div class="stat-card">
+
+
+            <div class="stat-icon purple">
+                💻
+            </div>
+
+
+            <div>
+
+                <span>
+                    Problems Solved
+                </span>
+
+                <h2 id="problemsSolved">
+                    247
+                </h2>
+
+                <small class="positive">
+                    ↑ 18 this week
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+
+            <div class="stat-icon orange">
+                🔥
+            </div>
+
+
+            <div>
+
+                <span>
+                    Current Streak
+                </span>
+
+                <h2>
+                    <span id="streakCount">
+                        18
+                    </span>
+                    Days
+                </h2>
+
+                <small class="positive">
+                    Personal best!
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+
+            <div class="stat-icon blue">
+                🚀
+            </div>
+
+
+            <div>
+
+                <span>
+                    Projects Built
+                </span>
+
+                <h2>
+                    7
+                </h2>
+
+                <small>
+                    This semester
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+
+            <div class="stat-icon green">
+                ⭐
+            </div>
+
+
+            <div>
+
+                <span>
+                    Coding Score
+                </span>
+
+                <h2>
+                    82%
+                </h2>
+
+                <small class="positive">
+                    ↑ 6% this month
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         WEEKLY CODING STREAK
+    ================================================= -->
+
+
+    <div class="dashboard-grid">
+
+
+        <div class="panel streak-panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span>
+                        CODING STREAK
+                    </span>
+
+                    <h3>
+                        Your Weekly Activity 🔥
+                    </h3>
+
+                </div>
+
+
+                <strong class="streak-number">
+                    18 🔥
+                </strong>
+
+            </div>
+
+
+            <div class="week-grid">
+
+
+                <div class="day completed">
+
+                    <span>
+                        MON
+                    </span>
+
+                    <div>
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="day completed">
+
+                    <span>
+                        TUE
+                    </span>
+
+                    <div>
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="day completed">
+
+                    <span>
+                        WED
+                    </span>
+
+                    <div>
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="day completed">
+
+                    <span>
+                        THU
+                    </span>
+
+                    <div>
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="day completed">
+
+                    <span>
+                        FRI
+                    </span>
+
+                    <div>
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="day today">
+
+                    <span>
+                        SAT
+                    </span>
+
+                    <div>
+                        +
+                    </div>
+
+                </div>
+
+
+                <div class="day">
+
+                    <span>
+                        SUN
+                    </span>
+
+                    <div>
+                        -
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="streak-message">
+
+                🔥 You're on fire! Complete today's goal
+                to continue your streak.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             DAILY GOAL
+        ================================================= -->
+
+
+        <div class="panel goal-panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span>
+                        DAILY GOAL
+                    </span>
+
+                    <h3>
+                        Today's Progress 🎯
+                    </h3>
+
+                </div>
+
+                <span class="goal-percent">
+                    80%
+                </span>
+
+            </div>
+
+
+            <div class="goal-progress">
+
+                <div id="goalProgress">
+                </div>
+
+            </div>
+
+
+            <div class="goal-info">
+
+                <strong>
+                    4 / 5 Tasks Completed
+                </strong>
+
+                <span>
+                    1 task remaining
+                </span>
+
+            </div>
+
+
+            <button class="small-btn"
+                    onclick="openActivityModal()">
+
+                + Add Progress
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PROBLEMS SECTION
+===================================================== -->
+
+<section id="problems"
+         class="page-section">
+
+
+    <div class="section-header">
+
+
+        <div>
+
+            <span>
+                CODING PRACTICE
+            </span>
+
+            <h2>
+                Problem Solving
+            </h2>
+
+            <p>
+                Track your programming problem-solving journey.
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="openActivityModal()">
+
+            + Add Problem
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="problem-grid">
+
+
+        <div class="problem-card">
+
+            <div class="problem-icon easy">
+                🟢
+            </div>
+
+            <div>
+
+                <span>
+                    EASY
+                </span>
+
+                <h3>
+                    124
+                </h3>
+
+                <p>
+                    Problems Solved
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="problem-card">
+
+            <div class="problem-icon medium">
+                🟡
+            </div>
+
+            <div>
+
+                <span>
+                    MEDIUM
+                </span>
+
+                <h3>
+                    89
+                </h3>
+
+                <p>
+                    Problems Solved
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="problem-card">
+
+            <div class="problem-icon hard">
+                🔴
+            </div>
+
+            <div>
+
+                <span>
+                    HARD
+                </span>
+
+                <h3>
+                    34
+                </h3>
+
+                <p>
+                    Problems Solved
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- RECENT ACTIVITY -->
+
+    <div class="panel activity-panel">
+
+
+        <div class="panel-header">
+
+            <div>
+
+                <span>
+                    RECENT ACTIVITY
+                </span>
+
+                <h3>
+                    Latest Coding Sessions
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div id="activityList">
+
+
+            <div class="activity-item">
+
+
+                <div class="activity-icon">
+                    💻
+                </div>
+
+
+                <div class="activity-info">
+
+                    <strong>
+                        Solved Array Problems
+                    </strong>
+
+                    <span>
+                        5 problems • DSA
+                    </span>
+
+                </div>
+
+
+                <div class="activity-time">
+                    Today
+                </div>
+
+
+            </div>
+
+
+
+            <div class="activity-item">
+
+
+                <div class="activity-icon">
+                    🐍
+                </div>
+
+
+                <div class="activity-info">
+
+                    <strong>
+                        Python Practice
+                    </strong>
+
+                    <span>
+                        Functions & Lists
+                    </span>
+
+                </div>
+
+
+                <div class="activity-time">
+                    Yesterday
+                </div>
+
+
+            </div>
+
+
+
+            <div class="activity-item">
+
+
+                <div class="activity-icon">
+                    🗄️
+                </div>
+
+
+                <div class="activity-info">
+
+                    <strong>
+                        SQL Queries
+                    </strong>
+
+                    <span>
+                        8 queries completed
+                    </span>
+
+                </div>
+
+
+                <div class="activity-time">
+                    2 days ago
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills"
+         class="page-section">
+
+
+    <div class="section-header">
+
+
+        <div>
+
+            <span>
+                TECHNICAL DEVELOPMENT
+            </span>
+
+            <h2>
+                Programming Skills
+            </h2>
+
+            <p>
+                Monitor your technical skill growth.
+            </p>
+
+        </div>
+
+
+        <button class="add-btn"
+                onclick="openSkillModal()">
+
+            + Add Skill
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="skills-layout">
+
+
+        <!-- SKILL CARDS -->
+
+        <div class="panel skills-panel">
+
+
+            <div class="skill-row">
+
+                <div class="skill-name">
+
+                    <div class="language-icon python">
+                        🐍
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Python
+                        </strong>
+
+                        <span>
+                            Advanced
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <strong>
+                    85%
+                </strong>
+
+            </div>
+
+
+            <div class="skill-progress">
+
+                <div style="width:85%">
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row">
+
+                <div class="skill-name">
+
+                    <div class="language-icon java">
+                        ☕
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Java
+                        </strong>
+
+                        <span>
+                            Intermediate
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <strong>
+                    65%
+                </strong>
+
+            </div>
+
+
+            <div class="skill-progress">
+
+                <div style="width:65%">
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row">
+
+                <div class="skill-name">
+
+                    <div class="language-icon sql">
+                        🗄️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            SQL
+                        </strong>
+
+                        <span>
+                            Intermediate
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <strong>
+                    72%
+                </strong>
+
+            </div>
+
+
+            <div class="skill-progress">
+
+                <div style="width:72%">
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row">
+
+                <div class="skill-name">
+
+                    <div class="language-icon web">
+                        🌐
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Web Development
+                        </strong>
+
+                        <span>
+                            Intermediate
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <strong>
+                    78%
+                </strong>
+
+            </div>
+
+
+            <div class="skill-progress">
+
+                <div style="width:78%">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SKILL SCORE -->
+
+        <div class="skill-score-card">
+
+
+            <div class="score-circle">
+
+                <div>
+
+                    <strong>
+                        82
+                    </strong>
+
+                    <span>
+                        / 100
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Overall Skill Score
+            </h3>
+
+
+            <p>
+                Keep practicing to reach
+                the next level.
+            </p>
+
+
+            <div class="level-badge">
+                🚀 Level 8 Developer
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     DSA GOALS
+===================================================== -->
+
+<section id="goals"
+         class="page-section">
+
+
+    <div class="section-header">
+
+
+        <div>
+
+            <span>
+                LEARNING ROADMAP
+            </span>
+
+            <h2>
+                DSA Progress
+            </h2>
+
+            <p>
+                Track important data structures and algorithms.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="dsa-grid">
+
+
+        <div class="dsa-card">
+
+            <div class="dsa-top">
+
+                <span>
+                    Arrays
+                </span>
+
+                <strong>
+                    90%
+                </strong>
+
+            </div>
+
+            <div class="dsa-progress">
+
+                <div style="width:90%">
+                </div>
+
+            </div>
+
+            <small>
+                27 / 30 topics
+            </small>
+
+        </div>
+
+
+
+        <div class="dsa-card">
+
+            <div class="dsa-top">
+
+                <span>
+                    Strings
+                </span>
+
+                <strong>
+                    80%
+                </strong>
+
+            </div>
+
+            <div class="dsa-progress">
+
+                <div style="width:80%">
+                </div>
+
+            </div>
+
+            <small>
+                16 / 20 topics
+            </small>
+
+        </div>
+
+
+
+        <div class="dsa-card">
+
+            <div class="dsa-top">
+
+                <span>
+                    Linked Lists
+                </span>
+
+                <strong>
+                    65%
+                </strong>
+
+            </div>
+
+            <div class="dsa-progress">
+
+                <div style="width:65%">
+                </div>
+
+            </div>
+
+            <small>
+                13 / 20 topics
+            </small>
+
+        </div>
+
+
+
+        <div class="dsa-card">
+
+            <div class="dsa-top">
+
+                <span>
+                    Trees
+                </span>
+
+                <strong>
+                    50%
+                </strong>
+
+            </div>
+
+            <div class="dsa-progress">
+
+                <div style="width:50%">
+                </div>
+
+            </div>
+
+            <small>
+                10 / 20 topics
+            </small>
+
+        </div>
+
+
+
+        <div class="dsa-card">
+
+            <div class="dsa-top">
+
+                <span>
+                    Graphs
+                </span>
+
+                <strong>
+                    35%
+                </strong>
+
+            </div>
+
+            <div class="dsa-progress">
+
+                <div style="width:35%">
+                </div>
+
+            </div>
+
+            <small>
+                7 / 20 topics
+            </small>
+
+        </div>
+
+
+
+        <div class="dsa-card">
+
+            <div class="dsa-top">
+
+                <span>
+                    Dynamic Programming
+                </span>
+
+                <strong>
+                    25%
+                </strong>
+
+            </div>
+
+            <div class="dsa-progress">
+
+                <div style="width:25%">
+                </div>
+
+            </div>
+
+            <small>
+                5 / 20 topics
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ACHIEVEMENTS
+===================================================== -->
+
+<section id="achievements"
+         class="page-section">
+
+
+    <div class="section-header">
+
+
+        <div>
+
+            <span>
+                MILESTONES
+            </span>
+
+            <h2>
+                Achievements 🏆
+            </h2>
+
+            <p>
+                Celebrate your coding milestones.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="achievement-grid">
+
+
+        <div class="achievement-card unlocked">
+
+            <div class="achievement-icon">
+                🔥
+            </div>
+
+            <h3>
+                10 Day Streak
+            </h3>
+
+            <p>
+                Coded for 10 consecutive days.
+            </p>
+
+            <span>
+                UNLOCKED
+            </span>
+
+        </div>
+
+
+
+        <div class="achievement-card unlocked">
+
+            <div class="achievement-icon">
+                💯
+            </div>
+
+            <h3>
+                Century Coder
+            </h3>
+
+            <p>
+                Solved 100 coding problems.
+            </p>
+
+            <span>
+                UNLOCKED
+            </span>
+
+        </div>
+
+
+
+        <div class="achievement-card unlocked">
+
+            <div class="achievement-icon">
+                🚀
+            </div>
+
+            <h3>
+                Project Builder
+            </h3>
+
+            <p>
+                Built 5 programming projects.
+            </p>
+
+            <span>
+                UNLOCKED
+            </span>
+
+        </div>
+
+
+
+        <div class="achievement-card locked">
+
+            <div class="achievement-icon">
+                🔒
+            </div>
+
+            <h3>
+                500 Problems
+            </h3>
+
+            <p>
+                Solve 500 coding problems.
+            </p>
+
+            <span>
+                LOCKED
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ANALYTICS
+===================================================== -->
+
+<section id="analytics"
+         class="page-section">
+
+
+    <div class="section-header">
+
+
+        <div>
+
+            <span>
+                PERFORMANCE
+            </span>
+
+            <h2>
+                Coding Analytics
+            </h2>
+
+            <p>
+                Understand your learning progress.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="analytics-grid">
+
+
+        <div class="panel analytics-card">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span>
+                        WEEKLY PROGRESS
+                    </span>
+
+                    <h3>
+                        Problems Solved
+                    </h3>
+
+                </div>
+
+
+                <strong>
+                    +18
+                </strong>
+
+            </div>
+
+
+            <div class="chart">
+
+
+                <div class="chart-column">
+
+                    <div class="chart-bar"
+                         style="height:45%">
+                    </div>
+
+                    <span>
+                        Mon
+                    </span>
+
+                </div>
+
+
+                <div class="chart-column">
+
+                    <div class="chart-bar"
+                         style="height:65%">
+                    </div>
+
+                    <span>
+                        Tue
+                    </span>
+
+                </div>
+
+
+                <div class="chart-column">
+
+                    <div class="chart-bar"
+                         style="height:40%">
+                    </div>
+
+                    <span>
+                        Wed
+                    </span>
+
+                </div>
+
+
+                <div class="chart-column">
+
+                    <div class="chart-bar"
+                         style="height:80%">
+                    </div>
+
+                    <span>
+                        Thu
+                    </span>
+
+                </div>
+
+
+                <div class="chart-column">
+
+                    <div class="chart-bar"
+                         style="height:70%">
+                    </div>
+
+                    <span>
+                        Fri
+                    </span>
+
+                </div>
+
+
+                <div class="chart-column">
+
+                    <div class="chart-bar active"
+                         style="height:90%">
+                    </div>
+
+                    <span>
+                        Sat
+                    </span>
+
+                </div>
+
+
+                <div class="chart-column">
+
+                    <div class="chart-bar"
+                         style="height:20%">
+                    </div>
+
+                    <span>
+                        Sun
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="panel analytics-card">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span>
+                        LEARNING SCORE
+                    </span>
+
+                    <h3>
+                        Overall Progress
+                    </h3>
+
+                </div>
+
+
+                <strong>
+                    82%
+                </strong>
+
+            </div>
+
+
+            <div class="overall-progress">
+
+                <div
+                    class="overall-circle">
+
+                    <div>
+
+                        <strong>
+                            82%
+                        </strong>
+
+                        <span>
+                            Progress
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="analytics-message">
+
+                🎯 You're ahead of your monthly
+                learning target. Keep going!
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CLOUD SECTION
+===================================================== -->
+
+<section class="cloud-section">
+
+
+    <div class="cloud-content">
+
+
+        <div>
+
+            <span>
+                ☁️ CLOUD READY
+            </span>
+
+
+            <h2>
+                Your Coding Journey,
+                <br>
+                Anywhere.
+            </h2>
+
+
+            <p>
+
+                CodePulse is designed as a cloud-ready
+                student platform. Your coding progress,
+                skills and achievements can be connected
+                to a centralized cloud database.
+
+            </p>
+
+
+            <div class="cloud-features">
+
+                <div>
+                    ✓ Centralized Progress
+                </div>
+
+                <div>
+                    ✓ Scalable Architecture
+                </div>
+
+                <div>
+                    ✓ Multi-Device Access
+                </div>
+
+                <div>
+                    ✓ Secure Data Management
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="cloud-visual">
+
+            <div class="cloud-main">
+                ☁️
+            </div>
+
+            <div class="cloud-node node-one">
+                💻
+            </div>
+
+            <div class="cloud-node node-two">
+                📊
+            </div>
+
+            <div class="cloud-node node-three">
+                🧠
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="footer-brand">
+
+        🧠 CodePulse
+
+    </div>
+
+
+    <p>
+        Smart Coding Progress & Skill Tracker
+    </p>
+
+
+    <small>
+        © 2026 CodePulse • Cloud Computing Mini Project
+    </small>
+
+
+</footer>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     ACTIVITY MODAL
+===================================================== -->
+
+<div id="activityModal"
+     class="modal">
+
+
+    <div class="modal-box">
+
+
+        <button class="close-modal"
+                onclick="closeActivityModal()">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-header">
+
+
+            <div class="modal-icon">
+                💻
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Log Coding Activity
+                </h2>
+
+                <p>
+                    Record your latest coding progress.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <form id="activityForm"
+              onsubmit="saveActivity(event)">
+
+
+            <div class="form-group">
+
+                <label>
+                    Activity
+                </label>
+
+                <input
+                    type="text"
+                    id="activityName"
+                    placeholder="e.g. Solved Array Problems"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Category
+                </label>
+
+                <select id="activityCategory"
+                        required>
+
+                    <option value="">
+                        Select category
+                    </option>
+
+                    <option>
+                        DSA
+                    </option>
+
+                    <option>
+                        Python
+                    </option>
+
+                    <option>
+                        Java
+                    </option>
+
+                    <option>
+                        SQL
+                    </option>
+
+                    <option>
+                        Web Development
+                    </option>
+
+                    <option>
+                        Project
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Problems / Tasks Completed
+                </label>
+
+                <input
+                    type="number"
+                    id="activityCount"
+                    min="1"
+                    placeholder="5"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-actions">
+
+                <button type="button"
+                        class="cancel-btn"
+                        onclick="closeActivityModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="save-btn">
+
+                    Save Activity
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SKILL MODAL
+===================================================== -->
+
+<div id="skillModal"
+     class="modal">
+
+
+    <div class="modal-box">
+
+
+        <button class="close-modal"
+                onclick="closeSkillModal()">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-header">
+
+
+            <div class="modal-icon">
+                🧩
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Add Programming Skill
+                </h2>
+
+                <p>
+                    Track a new technical skill.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <form onsubmit="saveSkill(event)">
+
+
+            <div class="form-group">
+
+                <label>
+                    Skill Name
+                </label>
+
+                <input
+                    type="text"
+                    id="skillName"
+                    placeholder="e.g. JavaScript"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Skill Level (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="skillLevel"
+                    min="1"
+                    max="100"
+                    placeholder="70"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-actions">
+
+                <button type="button"
+                        class="cancel-btn"
+                        onclick="closeSkillModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="save-btn">
+
+                    Add Skill
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
